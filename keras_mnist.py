@@ -9,6 +9,7 @@ print("test size: ", test_images.shape, " test label size: ", test_labels)
 # Defien the network arch
 from keras import models
 from keras import layers
+from keras import optimizers
 
 # The Forward Pass
 net = models.Sequential() # Feed forward network model class
@@ -17,7 +18,11 @@ net.add(layers.Dense(32, activation='relu')) # Even if you dont provide input_zi
 net.add(layers.Dense(10, activation = 'softmax')) # Keras automatically takes input dim as 512 an out put dim = 10, As this is last layer we add activation = 'softmax'
 
 # The Backward pass
-net.compile(optimizer='rmsprop', loss= 'categorical_crossentropy', metrics=['accuracy']) # Add stuf for backpropagation
+# Below are two ways you can pass optimizers
+# Method 1:
+#net.compile(optimizer='rmsprop', loss= 'categorical_crossentropy', metrics=['accuracy']) # Add stuf for backpropagation
+# Method 2:
+net.compile(optimizer=optimizers.RMSprop(lr=0.001), loss='mse', metrics=['accuracy'])
 
 # Prepare the train data
 train_images = train_images.reshape(60000, 28*28)
@@ -30,7 +35,7 @@ train_labels = to_categorical(train_labels)
 test_labels = to_categorical(test_labels)
 
 # The Train command in Keras: which does the forward and backwad passes
-net.fit(train_images, train_labels, epochs=5, batch_size=128)
+net.fit(train_images, train_labels, epochs=10, batch_size=128)
 # note about epochs and batch_size
 """
 Given training data size: 60000
