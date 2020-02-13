@@ -1,3 +1,5 @@
 env/
 aclImdb/
 *.zip
+glove.6B/
+*.h5
