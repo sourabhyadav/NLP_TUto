@@ -27,7 +27,7 @@ def vectorize_sequences(sequences, dimension=10000):
 
 x_train = vectorize_sequences(train_data)
 x_test = vectorize_sequences(test_data)
-
+print("x_train size: ", x_train.shape)
 print("Vectorized Sample Sentence: ", x_train[query_indx])
 
 # Vectorize the Lables.

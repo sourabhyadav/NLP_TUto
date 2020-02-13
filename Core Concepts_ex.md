@@ -37,4 +37,9 @@
 * Few examples of named entity is : NAME, LOCATION, TIME, DATE, MONEY, PERCENT etc.
 
 **Lemmatizing:**
-* It is similar to stemming but here the word would be replaced by a synonyms
+* It is similar to stemming but here the word would be replaced by a synonyms  
+
+**Word Embedding:**  
+* **ONe-hot encoding:** This kind of word embedding is simple hardcoded and which is at very high-dimensional. Moreover, it is very sparse.
+*  **Learn word embeddings:** This kind of word embedding is trainable i,e, it can be learned from given data/corpus. This makes them dense and low-dimensional.  
+
